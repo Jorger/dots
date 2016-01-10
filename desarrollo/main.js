@@ -90,8 +90,8 @@ utils.accesoDOM(1, "home").addEventListener('click', (event) => {
     utils.accesoDOM(2, "back")[0].style.display = "none";
 });
 
-//Cargar los mundos...
-utils.getJson('js/worlds.json', (err, data) =>
+//Cargar los mundos que están eb el archivo .json...
+utils.getJson('js/worlds.min.json', (err, data) =>
 {
     if (!err)
     {
@@ -125,7 +125,7 @@ utils.getJson('js/worlds.json', (err, data) =>
             });
         }
         //Para cargar la imagen del ancla..
-        anchor.onload = function ()
+        anchor.onload = () =>
         {
             fade.style.display = loading.style.display = "none";
         };
