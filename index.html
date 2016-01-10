@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>Dots JS</title>
+    <link rel = "manifest" href = "manifest.json">
+    <meta name = "mobile-web-app-capable" content = "yes">
+    <meta name = "application-name" content = "Dots JS">
+    <link rel = "icon sizes = "300x300 href = "img/icon.png">
+    <meta name = "apple-mobile-web-app-capable" content = "yes">
+    <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
+    <meta name = "apple-mobile-web-app-title" content = "Dots JS">
+    <link rel = "apple-touch-icon" href = "img/icon.png">
+    <meta name = "theme-color" content = "#2196F3">
+    <link rel = "stylesheet" href = "css/styles.min.css">
+</head>
+<body>
+    <div id="fade"></div>
+    <div id="loading">Loading...</div>
+    <div class = "flip-container" id = "escenario">
+	    <div class = "flipper">
+		    <div class = "front">
+                    <div id = "niveles">
+                        <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="img/forkme.png" alt="Fork me on GitHub"></a>
+                        <h1 id = "titulo">DOTS JS<br><a href="https://twitter.com/ostjh" target="blank">By @ostjh</a></h1>
+                        <div id="mundos"></div>
+                    </div>
+		    </div>
+		    <div class = "back">
+			    <canvas id = "canvas" width = "290" height = "480"></canvas>
+                <div id = "botones">
+                    <div id = "home" class="boton"></div>
+                    <div id = "reload" class="boton"></div>
+                </div>
+		    </div>
+	    </div>
+    </div>
+    <script src = "js/build.min.js" charset="utf-8"></script>
+    <script>
+    if('serviceWorker' in navigator)
+    {
+        navigator.serviceWorker.register('/dots/sw.js', { scope: '/dots/' })
+        .then(function(registration)
+        {
+            console.log("Service Worker Registered");
+        });
+        navigator.serviceWorker.ready.then(function(registration)
+        {
+            console.log("Service Worker Ready");
+        });
+    }
+    </script>
+</body>
+</html>
